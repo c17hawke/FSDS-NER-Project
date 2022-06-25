@@ -1,0 +1,110 @@
+[2022-06-25 18:01:03,529: INFO: data_ingestion]: 
+********************
+[2022-06-25 18:01:03,529: INFO: data_ingestion]: >>>>> stage Data Ingestion stage started <<<<<
+[2022-06-25 18:01:03,531: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-06-25 18:04:34,975: INFO: data_ingestion]: dataset downloaded at: artifacts\cache_dir
+[2022-06-25 18:04:34,975: INFO: data_ingestion]: >>>>> stage Data Ingestion stage completed!<<<<<
+
+[2022-06-25 18:07:08,019: INFO: data_ingestion]: 
+********************
+[2022-06-25 18:07:08,020: INFO: data_ingestion]: >>>>> stage Data Ingestion stage started <<<<<
+[2022-06-25 18:07:08,022: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-06-25 18:10:55,214: ERROR: data_ingestion]: [WinError 5] Access is denied: 'artifacts\\cache_dir\\xtreme\\PAN-X.en\\1.0.0\\349258adc25bb45e47de193222f95e68a44f7a7ab53c4283b3f007208a11bf7e.incomplete' -> 'artifacts\\cache_dir\\xtreme\\PAN-X.en\\1.0.0\\349258adc25bb45e47de193222f95e68a44f7a7ab53c4283b3f007208a11bf7e'
+Traceback (most recent call last):
+  File "src/NER_data_ingestion/data_ingestion.py", line 46, in <module>
+    main(config_path=parsed_args.config)
+  File "src/NER_data_ingestion/data_ingestion.py", line 35, in main
+    data_ingestion.get_data()
+  File "src/NER_data_ingestion/data_ingestion.py", line 27, in get_data
+    en_data = load_dataset(self.dataset_name, self.subset, cache_dir=self.cache_dir )
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\load.py", line 1679, in load_dataset
+    builder_instance.download_and_prepare(
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\builder.py", line 712, in download_and_prepare
+    self._save_info()
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\contextlib.py", line 120, in __exit__
+    next(self.gen)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\builder.py", line 666, in incomplete_dir
+    os.rename(tmp_dir, dirname)
+PermissionError: [WinError 5] Access is denied: 'artifacts\\cache_dir\\xtreme\\PAN-X.en\\1.0.0\\349258adc25bb45e47de193222f95e68a44f7a7ab53c4283b3f007208a11bf7e.incomplete' -> 'artifacts\\cache_dir\\xtreme\\PAN-X.en\\1.0.0\\349258adc25bb45e47de193222f95e68a44f7a7ab53c4283b3f007208a11bf7e'
+[2022-06-25 18:11:52,878: INFO: data_ingestion]: 
+********************
+[2022-06-25 18:11:52,879: INFO: data_ingestion]: >>>>> stage Data Ingestion stage started <<<<<
+[2022-06-25 18:11:52,880: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-06-25 18:13:55,105: ERROR: data_ingestion]: HTTPSConnectionPool(host='s3.amazonaws.com', port=443): Read timed out.
+Traceback (most recent call last):
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\urllib3\response.py", line 522, in read
+    data = self._fp.read(amt) if not fp_closed else b""
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\http\client.py", line 459, in read
+    n = self.readinto(b)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\http\client.py", line 503, in readinto
+    n = self.fp.readinto(b)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\socket.py", line 669, in readinto
+    return self._sock.recv_into(b)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\requests\models.py", line 816, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\urllib3\response.py", line 579, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\urllib3\response.py", line 544, in read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\contextlib.py", line 131, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\urllib3\response.py", line 446, in _error_catcher
+    raise ReadTimeoutError(self._pool, None, "Read timed out.")
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='s3.amazonaws.com', port=443): Read timed out.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "src/NER_data_ingestion/data_ingestion.py", line 46, in <module>
+    main(config_path=parsed_args.config)
+  File "src/NER_data_ingestion/data_ingestion.py", line 35, in main
+    data_ingestion.get_data()
+  File "src/NER_data_ingestion/data_ingestion.py", line 27, in get_data
+    en_data = load_dataset(self.dataset_name, self.subset, cache_dir=self.cache_dir )
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\load.py", line 1679, in load_dataset
+    builder_instance.download_and_prepare(
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\builder.py", line 704, in download_and_prepare
+    self._download_and_prepare(
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\builder.py", line 1221, in _download_and_prepare
+    super()._download_and_prepare(dl_manager, verify_infos, check_duplicate_keys=verify_infos)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\builder.py", line 771, in _download_and_prepare
+    split_generators = self._split_generators(dl_manager, **split_generators_kwargs)
+  File "C:\Users\sunny\.cache\huggingface\modules\datasets_modules\datasets\xtreme\349258adc25bb45e47de193222f95e68a44f7a7ab53c4283b3f007208a11bf7e\xtreme.py", line 625, in _split_generators
+    return PanxParser.split_generators(dl_manager=dl_manager, config=self.config)
+  File "C:\Users\sunny\.cache\huggingface\modules\datasets_modules\datasets\xtreme\349258adc25bb45e47de193222f95e68a44f7a7ab53c4283b3f007208a11bf7e\xtreme.py", line 774, in split_generators
+    data_dir = dl_manager.download_and_extract(config.data_url)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\download\download_manager.py", line 431, in download_and_extract
+    return self.extract(self.download(url_or_urls))
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\download\download_manager.py", line 309, in download
+    downloaded_path_or_paths = map_nested(
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\utils\py_utils.py", line 348, in map_nested
+    return function(data_struct)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\download\download_manager.py", line 335, in _download
+    return cached_path(url_or_filename, download_config=download_config)
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\utils\file_utils.py", line 185, in cached_path
+    output_path = get_from_cache(
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\utils\file_utils.py", line 577, in get_from_cache
+    http_get(
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\datasets\utils\file_utils.py", line 380, in http_get
+    for chunk in response.iter_content(chunk_size=1024):
+  File "F:\LIVE_CLASS\FSDS_FEB\codebase\FSDS-NER-Project\env\lib\site-packages\requests\models.py", line 823, in generate
+    raise ConnectionError(e)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='s3.amazonaws.com', port=443): Read timed out.
+[2022-06-25 19:14:27,932: INFO: data_ingestion]: 
+********************
+[2022-06-25 19:14:27,932: INFO: data_ingestion]: >>>>> stage Data Ingestion stage started <<<<<
+[2022-06-25 19:14:27,933: INFO: common]: yaml file: configs/config.yaml loaded successfully
+[2022-06-25 19:17:45,902: INFO: data_ingestion]: dataset downloaded at: artifacts\cache_dir
+[2022-06-25 19:17:45,902: INFO: data_ingestion]: >>>>> stage Data Ingestion stage completed!<<<<<
+
